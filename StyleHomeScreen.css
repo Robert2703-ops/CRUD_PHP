@@ -1,0 +1,30 @@
+.Test{
+    width: 350px;
+    height: 300px;
+    background: rgb(240, 240, 156);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding-top: 75px;
+    text-align: center;
+    border: 2px double black;
+}
+
+.Test input{
+    border: 2px double;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgb(240, 240, 156);
+}
+
+.Test input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background: rgb(240, 240, 156);
+}
+/* To get the borders out, while elements selected */
+
+#Login{
+    float: left;
+}
