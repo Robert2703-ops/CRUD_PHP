@@ -1,3 +1,6 @@
+<?php
+    require("Functions_HomeScreen.php");    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,24 @@
 </head>
 <body style="background: rgb(107, 107, 25)">
     <div class="Test">
-        <form action = "SecondPagePHP.php" method = "POST" class="FirstForm">
+        <?php
+            if(isset($_POST["Submit"])){
+                $UserName = $_POST["NameSpace"];
+                $Messages = array();    
+                foreach($_POST as $Fields => $Key){
+                    if(CheckFields($Key)){
+                        $Messages[$Fields] = "$Fields esta invalido!!!";
+                        echo $Messages[$Fields];
+                        echo "<br/>";
+                        }
+                    }
+                }
+            else{
+               echo "Preencha o formulario"; 
+            }
+        ?>
+
+        <form action = "HomeScreen.php" method = "POST" class="FirstForm">
             <label for="NameSpace">
                 Nome: <input type="text" name="NameSpace"/>
             </label><br>
