@@ -6,7 +6,7 @@
     $Link = new Links();
     $DataBase = new DataBase();
     $User = new User();
-    $Message = "Preencha o formulario";
+    $Message = "Crie sua conta";
     $Errors_messages = array('nome', 'email', 'senha', 'count');
     
     if(isset($_POST["Submit"])){
@@ -15,6 +15,7 @@
 
         if($User->validation_email() === true){
             $Errors_messages['email'] = "campo email invalido!";
+            $Message = "Preencha os campos corretamente!";
             $Errors_messages['count'] = $User->validation_count($Errors_messages['count']);
         }elseif($User->validation_email() === false){
             $number = $DataBase->search_data("email", "email", $User->email);
@@ -36,10 +37,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>  
     <link rel="stylesheet" href="LogupScreen.css" type="text/css">
+    <link rel="stylesheet" href="Text.css" type="text/css">
 </head>
-<body style="background: rgb(107, 107, 25)">
-    <div class="Test">
-        
+<body>
+    <div class="Box">
         <h1><?php echo $Message;?></h1>
         <?php 
             foreach($Errors_messages as $fields => $key){ 
@@ -49,22 +50,25 @@
                 }
             }
         ?>
-
-        <form action = "LogupScreen.php" method = "POST" class="FirstForm">
+        <form action = "LogupScreen.php" method = "POST" class="Box">
             <label for="NameSpace">
-                Nome: <input type="text" name="NameSpace"/>
-            </label><br>
+                <input type="text" name="NameSpace" placeholder="Nome"/>
+            </label>
 
             <label for="EmailSpace">
-                E-mail: <input type="text" name="EmailSpace"/> 
-            </label><br>
+                <input type="text" name="EmailSpace" placeholder="Email"/> 
+            </label>
 
             <label for="PassWord">
-                senha: <input type="password" name="PassWordSpace"/> 
-            </label><br>
+                <input type="password" name="PassWordSpace" placeholder="Senha"/> 
+            </label>
             <input type="submit" name="Submit" value="Criar"/>
         </form>
+        <div class="Text">
+            Ja tem conta aqui no nosso servico? <a href="/Projeto_CRUD/LoginScreen/LoginScreen.php">Login</a>
+        </div>
     </div>
+    
 
 </body>
 </html>

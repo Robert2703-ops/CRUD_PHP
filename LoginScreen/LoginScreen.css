@@ -1,30 +1,57 @@
-.Test{
-    width: 350px;
-    height: 300px;
-    background: rgb(240, 240, 156);
+body{
+    background: rgb(134, 6, 13);
+}
+div.form{
+    background: rgb(61, 0, 3);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
-    padding-top: 75px;
+    width: 500px;
+    height: 450px;
     text-align: center;
-    border: 2px double black;
+    color: white;
+    box-shadow: 15px 10px 10px rgb(37, 1, 2);
+    border-radius: 15px;
+}
+form.form{
+    margin-top: 40px;
+}
+.form input[type = "text"], .form input[type = "password"]{
+    color: white;
+    border: 1px rgb(0, 0, 0) solid;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    border-radius: 35px;
+    transition: 0.25s;
+    width: 250px;
+    outline: none;
+}
+.form input[type = "text"]:focus ,  input[type = "password"]:focus{
+    width: 350px;
+    border-color: rgb(4, 90, 4);
+    background: rgb(134, 6, 13);
+    color: white;
+}
+.form input[type = "submit"]{
+    background: none;
+    outline: none;
+    color: white;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    border: 1px rgb(0, 0, 0) solid;
+    border-radius: 20px;
+}
+div.Text{
+    margin-top: 30px;
+    font-size: large;
+}
+.Text a{
+    color: rgb(0, 0, 255);
 }
 
-.Test input{
-    border: 2px double;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background: rgb(240, 240, 156);
-}
-
-.Test input:focus{
-    box-shadow: 0 0 0 0;
-    outline: 0;
-    background: rgb(240, 240, 156);
-}
-/* To get the borders out, while elements selected */
-
-#Login{
-    float: left;
-}

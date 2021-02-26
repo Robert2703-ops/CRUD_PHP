@@ -6,7 +6,7 @@
     $User = new User();
     $Database = new DataBase();
     $Link = new Links();
-    $Message = "Faca login na sua conta";
+    $Message = "Acesse sua conta";
     $array_messages = array('email', 'senha');
     
 
@@ -27,9 +27,10 @@
                     $array_messages['email'] = "Email nao encontrado!";
                 }else{
                     if($Database->validation_password("id_user", "email", $User->email, $User->password) === true){
-                        $Link->redirect_tasks();
+                        $id = $Database->search_data("id_user", "password_user", $User->password);
+                        $Link->redirect_tasks($id);
                     }else{
-                        $array_messages['senha'] = "senha incorreta, por favor, tente novamente";
+                        $array_messages['senha'] = "senha incorreta, por favor tente novamente";
                     }
                 }
             }
@@ -44,8 +45,9 @@
     <title>Document</title>  
     <link rel="stylesheet" href="LoginScreen.css" type="text/css">
 </head>
-<body style="background: rgb(107, 107, 25)">
-    <div class="Test">
+<body>
+
+    <div class="form">
         <h1><?php echo $Message;?></h1>
         <?php
             foreach($array_messages as $fields => $key){
@@ -55,16 +57,17 @@
                 }
             }
         ?>
-
-        <form action = "LoginScreen.php" method = "POST" class="FirstForm">
+        <form action = "LoginScreen.php" method = "POST" class="form">
             <label for="EmailSpace">
-                E-mail: <input type="text" name="EmailSpace"/> 
-            </label><br>
-
+                <input type="text" name="EmailSpace" placeholder="email"/> 
+            </label>
             <label for="PassWord">
-                senha: <input type="password" name="PassWordSpace"/> 
-            </label><br>
-            <input type="submit" name="Submit" value="Criar"/>
+                <input type="password" name="PassWordSpace" placeholder="senha"/> 
+            </label>
+            <input type="submit" name="Submit" value="Entrar"/>
+        <div class="Text">
+            Ainda nao tem conta aqui no nosso servico? <a href="/Projeto_CRUD/LogupScreen/LogupScreen.php">Criar conta</a>
+        </div>
         </form>
     </div>
 

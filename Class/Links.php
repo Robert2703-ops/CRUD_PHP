@@ -11,8 +11,8 @@
             $this->Link_login = "LoginScreen.php";
         }
 
-        public function redirect_tasks(){
-            header("Location: /Projeto_CRUD/TasksScreen/$this->Link_tasks");
+        public function redirect_tasks($id=0){
+            header("Location: /Projeto_CRUD/TasksScreen/$this->Link_tasks?id=$id");
         }
     }
 ?>
