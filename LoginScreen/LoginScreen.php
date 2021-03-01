@@ -11,30 +11,36 @@
     
 
     if(isset($_POST['Submit'])){
-        $array_messages = $User->validation_data(null,$_POST['EmailSpace'], $_POST['PassWordSpace'],
-                            $array_messages);
-                $array_messages['nome'] = null;
+        $array_messages = $User->validation_data(null,$_POST['EmailSpace'], $_POST['PassWordSpace'], $array_messages);
+        $array_messages['nome'] = null;
 
         if($User->validation_email() === true && $User->validation_password() === true){
             $array_messages['email'] = "campo email invalido!";
             $Message = "Por favor, preencha o formulario corretamente";
-        }if($User->validation_email() === true){
+        }
+        
+        if($User->validation_email() === true){
             $array_messages['email'] = "campo email invalido!";
         }
-        elseif($User->validation_email() === false && $User->validation_password() === false){
+        else if($User->validation_email() === false && $User->validation_password() === false){
             $count = $Database->search_data("email","email", $User->email);
+            
             if($count === false){
-                    $array_messages['email'] = "Email nao encontrado!";
-                }else{
-                    if($Database->validation_password("id_user", "email", $User->email, $User->password) === true){
-                        $id = $Database->search_data("id_user", "password_user", $User->password);
-                        $Link->redirect_tasks($id);
-                    }else{
-                        $array_messages['senha'] = "senha incorreta, por favor tente novamente";
-                    }
+                $array_messages['email'] = "Email nao encontrado!";
+            }else
+            {
+                if($Database->validation_password("id_user", "email", $User->email, $User->password) === true)
+                {
+                    $id = $Database->search_data("id_user", "password_user", $User->password);
+                    $Link->redirect_tasks($id);
+                }
+                else{
+                    $array_messages['senha'] = "senha incorreta, por favor tente novamente";
                 }
             }
-        }    
+
+        }
+    }    
 
 ?>
 <!DOCTYPE html>
@@ -66,7 +72,7 @@
             </label>
             <input type="submit" name="Submit" value="Entrar"/>
         <div class="Text">
-            Ainda nao tem conta aqui no nosso servico? <a href="/Projeto_CRUD/LogupScreen/LogupScreen.php">Criar conta</a>
+            Ainda nao tem conta aqui no nosso servico? <a href="/Projeto_CRUD/SignupScreen/SignupScreen.php">Criar conta</a>
         </div>
         </form>
     </div>

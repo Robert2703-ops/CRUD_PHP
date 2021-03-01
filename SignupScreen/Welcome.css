@@ -1,0 +1,14 @@
+body{
+    background: rgb(146, 139, 136);
+}
+div.Welcome{
+    background: black;
+    text-align: center;
+    float: right;
+    width: 200px;
+    margin: 50px;
+    margin-right: 70px;
+}
+.Welcome h2, p{
+    color: white;
+}

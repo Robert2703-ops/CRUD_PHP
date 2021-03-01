@@ -18,9 +18,9 @@
                     mysqli_connect_error() .
                     "(" . mysqli_connect_errno() . ")"
                 );
-            }else{
-                echo "connection is working";
-                echo "</br>";
+            }
+            else{
+                return "connection is working";
             }
         }
 

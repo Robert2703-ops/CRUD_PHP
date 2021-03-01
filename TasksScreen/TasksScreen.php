@@ -1,9 +1,20 @@
 <?php
+    require_once("C:/xampp/htdocs/Projeto_CRUD/Class/Links.php");
+    $Links = new Links();
     $Message = "Prossiga";
-    if($_GET['id'] <= 0){
-        $Message = "voce nao tem acesso a essa pagina, por favor volte a pagina de login ou crie uma conta!";
-    }else{
-        $Message = $_GET['id'];
+    if(isset($_GET['id']))
+    {
+        if($_GET['id']){
+            $Message = "pagina de usuario";
+        }else{
+            $Message = $_GET['id'];
+        }
+    }
+    else
+    {
+        echo 'acesso negado';
+        $Links->redirect("/Projeto_CRUD/SignupScreen/SignupScreen.php");
+
     }
 ?>
 <!DOCTYPE html>

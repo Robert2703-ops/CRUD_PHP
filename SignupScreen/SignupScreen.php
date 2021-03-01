@@ -25,7 +25,8 @@
             }
         }if($Errors_messages['count'] === false){
             $DataBase->set_data($User->name, $User->email, $User->password);
-            $Link->redirect_tasks();
+            $id = $DataBase->search_data("id_user", "email", $User->email);
+            $Link->redirect_tasks($id);
         }
     }
 ?>
@@ -36,39 +37,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>  
-    <link rel="stylesheet" href="LogupScreen.css" type="text/css">
+    <link rel="stylesheet" href="SignupScreen.css" type="text/css">
     <link rel="stylesheet" href="Text.css" type="text/css">
+    <link rel="stylesheet" href="Welcome.css" type="text/css">
 </head>
 <body>
-    <div class="Box">
-        <h1><?php echo $Message;?></h1>
-        <?php 
-            foreach($Errors_messages as $fields => $key){ 
-                if(strpos($key, "disponivel") > 0 || strpos($key, "invalido") > 0){
-                    echo $Errors_messages[$fields];
-                    echo "</br>";
+    <div class="Back">
+        <div class="Box">
+            <h1><?php echo $Message;?></h1>
+            <?php 
+                foreach($Errors_messages as $fields => $key){ 
+                    if(strpos($key, "disponivel") > 0 || strpos($key, "invalido") > 0){
+                        echo $Errors_messages[$fields];
+                        echo "</br>";
+                    }
                 }
-            }
-        ?>
-        <form action = "LogupScreen.php" method = "POST" class="Box">
-            <label for="NameSpace">
-                <input type="text" name="NameSpace" placeholder="Nome"/>
-            </label>
+            ?>
 
-            <label for="EmailSpace">
-                <input type="text" name="EmailSpace" placeholder="Email"/> 
-            </label>
 
-            <label for="PassWord">
-                <input type="password" name="PassWordSpace" placeholder="Senha"/> 
-            </label>
-            <input type="submit" name="Submit" value="Criar"/>
-        </form>
-        <div class="Text">
-            Ja tem conta aqui no nosso servico? <a href="/Projeto_CRUD/LoginScreen/LoginScreen.php">Login</a>
+            <form action = "SignupScreen.php" method = "POST" class="Box">
+                <label for="NameSpace">
+                    <input type="text" name="NameSpace" placeholder="Nome"/>
+                </label>
+
+                <label for="EmailSpace">
+                    <input type="text" name="EmailSpace" placeholder="Email"/> 
+                </label>
+
+                <label for="PassWord">
+                    <input type="password" name="PassWordSpace" placeholder="Senha"/> 
+                </label>
+                <input type="submit" name="Submit" value="Criar"/>
+            </form>
+
+            <div class="Text">
+                Ja tem conta aqui no nosso servico? <a href="/Projeto_CRUD/LoginScreen/LoginScreen.php">Login</a>
+            </div>
+        </div>
+
+        <div class="Welcome">
+            <h2>Bem vindo</h2>
+            <p>Aqui vai alguns exemplos do projeto!
         </div>
     </div>
-    
-
 </body>
 </html>
