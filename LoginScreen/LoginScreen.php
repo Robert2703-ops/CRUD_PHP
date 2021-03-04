@@ -31,8 +31,8 @@
             {
                 if($Database->validation_password("id_user", "email", $User->email, $User->password) === true)
                 {
-                    $id = $Database->search_data("id_user", "password_user", $User->password);
-                    $Link->redirect_tasks($id);
+                    $id = $Database->search_data("id_user", "email", $User->email);
+                    $Link->redirect_tasks($id, $User->email);
                 }
                 else{
                     $array_messages['senha'] = "senha incorreta, por favor tente novamente";

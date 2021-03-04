@@ -1,20 +1,30 @@
 <?php
     require_once("C:/xampp/htdocs/Projeto_CRUD/Class/Links.php");
+    require_once("C:/xampp/htdocs/Projeto_CRUD/Class/User.php");
+    require_once("C:/xampp/htdocs/Projeto_CRUD/Class/Data_Base.php");
+
     $Links = new Links();
+    $Database = new DataBase();
+    $User = new User();
     $Message = "Prossiga";
-    if(isset($_GET['id']))
+    
+    if (isset($_GET['id']) && isset($_GET['email']))
     {
-        if($_GET['id']){
-            $Message = "pagina de usuario";
-        }else{
-            $Message = $_GET['id'];
+        $User->email = $_GET['email'];
+        $id = $Database->search_data("id_user", "email", $User->email);
+        $access = $Database->search_data("access", "email", $User->email);
+
+        if ($id === $access){
+            $Message = "Acesso liberado"; 
+        }
+        else {
+            $Message = "Voce nao tem acesso aqui";
+            $Links->redirect("/Projeto_CRUD/Error/ErrorScreen.php");
         }
     }
     else
     {
-        echo 'acesso negado';
         $Links->redirect("/Projeto_CRUD/SignupScreen/SignupScreen.php");
-
     }
 ?>
 <!DOCTYPE html>

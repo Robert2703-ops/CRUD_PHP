@@ -24,6 +24,20 @@
             }
         }
 
+        private function set_access($value){
+            $id_user = $this->search_data("id_user", "email", $value);
+            
+            $query_insert = "UPDATE usuarios SET access = {$id_user} 
+                            WHERE id_user = {$id_user}";
+            $result = mysqli_query($this->connection, $query_insert);
+            
+            if($result){
+                echo "Suuuuuucesso!";
+            }else{
+                die("Consulta ao banco de dados falhou! " . mysqli_error($this->connection));
+            }     
+        }
+
         public function set_data($dataname, $dataemail, $datapassword){
             $query_insert = "INSERT INTO usuarios (name_user, email, password_user)
                                  VALUES ('$dataname', '$dataemail', '$datapassword')";
@@ -31,19 +45,11 @@
 
             if($result){
                 echo "Suuuuuucesso!";
-            }else{
-                die("Consulta ao banco de dados falhou! " . mysqli_error($this->connection));
-            }            
-        }
-
-        public function search_email($colunm, $select_email){
-            $Query_select_email = "SELECT * FROM usuarios WHERE $colunm = '$select_email'";
-            $result = mysqli_query($this->connection, $Query_select_email);
-
-            if(!$result){
-                die("Consulta ao banco de dados falhou!");
+                $this->set_access($dataemail);
             }
-            return ($result->num_rows);
+            else{
+                die("Consulta ao banco de dados falhou! " . mysqli_error($this->connection));
+            }
         }
 
         public function search_data($colunm, $id, $value){
@@ -55,7 +61,8 @@
             }
             if($result === 0){
                 return false;
-            }else{
+            }
+            else{
                 $number = null;
                 while($row = mysqli_fetch_assoc($result)){
                     $number = $row[$colunm];

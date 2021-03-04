@@ -13,20 +13,21 @@
         $Errors_messages = $User->validation_data($_POST["NameSpace"], $_POST["EmailSpace"], $_POST["PassWordSpace"],
                 $Errors_messages);
 
-        if($User->validation_email() === true){
+        if ($User->validation_email() === true){
             $Errors_messages['email'] = "campo email invalido!";
             $Message = "Preencha os campos corretamente!";
             $Errors_messages['count'] = $User->validation_count($Errors_messages['count']);
-        }elseif($User->validation_email() === false){
+            
+        }else if ($User->validation_email() === false){
             $number = $DataBase->search_data("email", "email", $User->email);
             if($number === $User->email){
                 $Errors_messages['email'] = "Email nao disponivel";
                 $Errors_messages['count'] = $User->validation_count($Errors_messages['count']);
             }
-        }if($Errors_messages['count'] === false){
+        }if ($Errors_messages['count'] === false){
             $DataBase->set_data($User->name, $User->email, $User->password);
             $id = $DataBase->search_data("id_user", "email", $User->email);
-            $Link->redirect_tasks($id);
+            $Link->redirect_tasks($id, $User->email);
         }
     }
 ?>
