@@ -27,7 +27,7 @@
         private function set_access($value){
             $id_user = $this->search_data("id_user", "email", $value);
             
-            $query_insert = "UPDATE usuarios SET access = {$id_user} 
+            $query_insert = "UPDATE users SET access = {$id_user} 
                             WHERE id_user = {$id_user}";
             $result = mysqli_query($this->connection, $query_insert);
             
@@ -39,7 +39,7 @@
         }
 
         public function set_data($dataname, $dataemail, $datapassword){
-            $query_insert = "INSERT INTO usuarios (name_user, email, password_user)
+            $query_insert = "INSERT INTO users (name_user, email, password_user)
                                  VALUES ('$dataname', '$dataemail', '$datapassword')";
                 $result = mysqli_query($this->connection, $query_insert);
 
@@ -53,7 +53,7 @@
         }
 
         public function search_data($colunm, $id, $value){
-            $Query_select_email = "SELECT $colunm FROM usuarios WHERE $id = '$value'";
+            $Query_select_email = "SELECT $colunm FROM users WHERE $id = '$value'";
             $result = mysqli_query($this->connection, $Query_select_email);
 
             if(!$result){
@@ -81,6 +81,10 @@
             }else{
                 return false;
             }
+        }
+
+        public function closing_connection(){
+            mysqli_close($this->connection);
         }
     }
 ?>

@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="Text.css" type="text/css">
     <link rel="stylesheet" href="Welcome.css" type="text/css">
 </head>
-<body>
+<body background="blue">
     <div class="Back">
         <div class="Box">
             <h1><?php echo $Message;?></h1>
@@ -83,3 +83,4 @@
     </div>
 </body>
 </html>
+<?php $DataBase->closing_connection() ?>

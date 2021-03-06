@@ -79,3 +79,4 @@
 
 </body>
 </html>
+<?php $Database->closing_connection() ?>

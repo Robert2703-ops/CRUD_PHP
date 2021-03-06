@@ -9,8 +9,8 @@
         public function redirect_tasks($id, $email){
             header("Location: /Projeto_CRUD/TasksScreen/$this->Link_tasks?id=$id&email=$email");
         }
-        public function redirect($value){
-            header("Location: $value");
+        public function redirect($value, $id="", $email=""){
+            header("Location: $value?id=$id&email=$email");
         }
     }
 ?>

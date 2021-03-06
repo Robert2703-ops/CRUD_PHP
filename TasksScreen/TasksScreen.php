@@ -6,7 +6,7 @@
     $Links = new Links();
     $Database = new DataBase();
     $User = new User();
-    $Message = "Prossiga";
+    $Message;
     
     if (isset($_GET['id']) && isset($_GET['email']))
     {
@@ -14,11 +14,11 @@
         $id = $Database->search_data("id_user", "email", $User->email);
         $access = $Database->search_data("access", "email", $User->email);
 
-        if ($id === $access){
-            $Message = "Acesso liberado"; 
+        if ($id === $access && $Database->search_data("email", "id_user", $id) === $User->email){
+            $User->name = $Database->search_data("name_user", "id_user", $id);
+            $Message = "Bem vindo $User->name";
         }
         else {
-            $Message = "Voce nao tem acesso aqui";
             $Links->redirect("/Projeto_CRUD/Error/ErrorScreen.php");
         }
     }
