@@ -1,16 +1,11 @@
 <?php
     class Links{
-        private $Link_tasks;
-
-        function Links(){
-            $this->Link_tasks = "TasksScreen.php";
-        }
 
         public function redirect_tasks($id, $email){
-            header("Location: /Projeto_CRUD/TasksScreen/$this->Link_tasks?id=$id&email=$email");
+            header("Location: /Projeto_CRUD/TasksScreen/TasksScreen.php?id=$id&email=$email");
         }
-        public function redirect($value, $id="", $email=""){
-            header("Location: $value?id=$id&email=$email");
+        public function redirect($value, $info="", $id="", $email=""){
+            header("Location: $value?info=$info&id=$id&email=$email");
         }
     }
 ?>

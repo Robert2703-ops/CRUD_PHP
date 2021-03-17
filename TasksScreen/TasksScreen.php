@@ -10,16 +10,19 @@
     
     if (isset($_GET['id']) && isset($_GET['email']))
     {
-        $User->email = $_GET['email'];
-        $id = $Database->search_data("id_user", "email", $User->email);
-        $access = $Database->search_data("access", "email", $User->email);
-
-        if ($id === $access && $Database->search_data("email", "id_user", $id) === $User->email){
-            $User->name = $Database->search_data("name_user", "id_user", $id);
-            $Message = "Bem vindo $User->name";
-        }
-        else {
-            $Links->redirect("/Projeto_CRUD/Error/ErrorScreen.php");
+        if(isset($_GET['id']) && isset($_GET['email']))
+        {
+            $User->email = $Database->search_data("email", "id_user", $_GET['id']);
+            $id = $Database->search_data("id_user", "email", $User->email);
+            $access = $Database->search_data("access", "email", $User->email);
+    
+            if($id !== $_GET['id'] || $access !== $_GET['id'] || $User->email !== $_GET['email']){
+                $Links->redirect("/Projeto_CRUD/Errors/ErrorScreen.php");
+            }
+            else{
+                $User->name = $Database->search_data("name_user", "email", $User->email);
+                $Message = "bem vindo $User->name";
+            }
         }
     }
     else
@@ -37,14 +40,28 @@
     <link rel="stylesheet" href="TasksScreen.css" type="text/css">
 </head>
 <body>
-    <header class="User_place">
-        <h1><?php echo $Message?></h1>
-        <div>
-            <a href="#"><img src="/Projeto_CRUD/Images/user_photo.jpg"></a>
+    <header class="menu">     
+        <div class="welcome">
+            <h1><?php echo $Message ?></h1>
         </div>
+
+        <nav class="menu">
+            <?php
+                echo "<a href='/Projeto_CRUD/User_place/changename/changename.php?id=$id&email=$User->email'>Alterar nome de usuario</a>
+                      <a href='/Projeto_CRUD/User_place/changepassword/changepassword.php?id=$id&email=$User->email'>Alterar senha de acesso</a>"
+            ?>
+        </nav>
     </header>
+
     <main>
-        
+        <h3>Voce tem 0 tarefas e lembretes</h3>
+
+        <div class="tasks">
+            <p>Aqui vao as tarefas!!!!!</p>
+        </div>
     </main>
+
+    <script src="animation.js"></script>
 </body>
 </html>
+<?php $Database->close_connection() ?>

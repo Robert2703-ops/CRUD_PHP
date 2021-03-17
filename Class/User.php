@@ -27,7 +27,7 @@
             return $this->validation_empty($this->password);
         }
 
-        public function validation_data($array_name, $array_email, $array_password,
+        public function validation_data($array_name="", $array_email="", $array_password="",
                         $array_messages){
                                 
             $this->name = $array_name;
@@ -41,7 +41,7 @@
 
             foreach($array_error as $fields => $error){
                 if ($error === true){
-                    $array_messages[$fields] = "campo $fields invalido!";
+                    $array_messages[$fields] = "campo $fields invalido! ";
                     echo "</br>";
                     $array_messages['count'] = $this->validation_count($array_messages['count']);
                 }

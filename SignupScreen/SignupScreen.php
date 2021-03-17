@@ -9,7 +9,8 @@
     $Message = "Crie sua conta";
     $Errors_messages = array('nome', 'email', 'senha', 'count');
     
-    if(isset($_POST["Submit"])){
+    if(isset($_POST["Submit"]))
+    {
         $Errors_messages = $User->validation_data($_POST["NameSpace"], $_POST["EmailSpace"], $_POST["PassWordSpace"],
                 $Errors_messages);
 
@@ -20,6 +21,7 @@
             
         }else if ($User->validation_email() === false){
             $number = $DataBase->search_data("email", "email", $User->email);
+            
             if($number === $User->email){
                 $Errors_messages['email'] = "Email nao disponivel";
                 $Errors_messages['count'] = $User->validation_count($Errors_messages['count']);
@@ -55,7 +57,6 @@
                 }
             ?>
 
-
             <form action = "SignupScreen.php" method = "POST" class="Box">
                 <label for="NameSpace">
                     <input type="text" name="NameSpace" placeholder="Nome"/>
@@ -83,4 +84,4 @@
     </div>
 </body>
 </html>
-<?php $DataBase->closing_connection() ?>
+<?php $DataBase->close_connection() ?>

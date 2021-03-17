@@ -29,16 +29,15 @@
                 $array_messages['email'] = "Email nao encontrado!";
             }else
             {
-                if($Database->validation_password("id_user", "email", $User->email, $User->password) === true)
+                if($Database->validation_password($User->email, $User->password) === true)
                 {
                     $id = $Database->search_data("id_user", "email", $User->email);
-                    $Link->redirect_tasks($id, $User->email);
+                    $Link->redirect("/Projeto_CRUD/TasksScreen/TasksScreen.php", "", $id, $User->email);
                 }
                 else{
                     $array_messages['senha'] = "senha incorreta, por favor tente novamente";
                 }
             }
-
         }
     }    
 
@@ -79,4 +78,4 @@
 
 </body>
 </html>
-<?php $Database->closing_connection() ?>
+<?php $Database->close_connection() ?>

@@ -1,17 +1,10 @@
 <?php
     class DataBase{
-        private $bd_host;
-        private $bd_user;
-        private $bd_password;
-        private $bd_name;
         private $connection;
     
-        function DataBase(){
-            $this->bd_host = "localhost";
-            $this->bd_user = "robert";
-            $this->bd_password = "rpl123";
-            $this->bd_name = "php_CRUD";
-            $this->connection = mysqli_connect($this->bd_host, $this->bd_user, $this->bd_password, $this->bd_name);
+        public function __construct()
+        {
+            $this->connection = mysqli_connect("localhost", "robert", "rpl123", "php_tasks");
         
             if(mysqli_connect_errno()){
                 die("Conexao com o banco de dados falhou!" .
@@ -20,32 +13,34 @@
                 );
             }
             else{
-                return "connection is working";
+                return "conexao ta ok";
             }
         }
 
-        private function set_access($value){
-            $id_user = $this->search_data("id_user", "email", $value);
+        public function update_data($search_value, $table_update, $colunm_update , $new_value){
+            $id = $this->search_data("id_user", "email", $search_value);
             
-            $query_insert = "UPDATE users SET access = {$id_user} 
-                            WHERE id_user = {$id_user}";
-            $result = mysqli_query($this->connection, $query_insert);
-            
-            if($result){
-                echo "Suuuuuucesso!";
-            }else{
-                die("Consulta ao banco de dados falhou! " . mysqli_error($this->connection));
-            }     
+            $Query_update = "UPDATE $table_update SET $colunm_update =  '$new_value'
+                            WHERE id_user = '$id'";
+            $result = mysqli_query($this->connection, $Query_update);
+
+            if(!$result){
+                die("Consulta ao banco falhou " . mysqli_error($this->connection));
+            }
+            else{
+                return "tudo ok ok ok ok";
+            }        
         }
 
         public function set_data($dataname, $dataemail, $datapassword){
             $query_insert = "INSERT INTO users (name_user, email, password_user)
-                                 VALUES ('$dataname', '$dataemail', '$datapassword')";
-                $result = mysqli_query($this->connection, $query_insert);
+                                VALUES ('$dataname', '$dataemail', '$datapassword')";
+            $result = mysqli_query($this->connection, $query_insert);
 
             if($result){
                 echo "Suuuuuucesso!";
-                $this->set_access($dataemail);
+                $id = $this->search_data("id_user", "email", $dataemail);
+                $this->update_data($dataemail, "users", "access", $id);
             }
             else{
                 die("Consulta ao banco de dados falhou! " . mysqli_error($this->connection));
@@ -57,7 +52,7 @@
             $result = mysqli_query($this->connection, $Query_select_email);
 
             if(!$result){
-                die("Consulta ao banco de dados falhou!");
+                die("Consulta ao banco de dados falhou! " .  mysqli_error($this->connection));
             }
             if($result === 0){
                 return false;
@@ -71,11 +66,10 @@
             }
         }
 
-        public function validation_password($colunm, $id, $value, $comparison_object){
-            $var = $this->search_data($colunm, $id, $value);
+        public function validation_password($value, $comparison_object){
             $var = $this->search_data("id_user", "email", $value);
-
             $var = $this->search_data("password_user", "id_user", $var);
+
             if($var === $comparison_object){
                 return true;
             }else{
@@ -83,7 +77,7 @@
             }
         }
 
-        public function closing_connection(){
+        public function close_connection(){
             mysqli_close($this->connection);
         }
     }

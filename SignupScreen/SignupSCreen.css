@@ -24,10 +24,8 @@ div.Box{
     color: white;
     box-shadow: 15px 10px 7px rgb(5, 49, 114);
     border-radius: 15px;
-    position: absolute;
     float: left;
-    left: calc(40% - 410px);
-    top: calc(75% - 500px)
+    margin: 40px;
 }
 .Box input[type = "submit"]{
     text-align: center;
