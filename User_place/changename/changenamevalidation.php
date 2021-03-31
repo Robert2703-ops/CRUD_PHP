@@ -3,13 +3,13 @@
     require_once("C:/xampp/htdocs/Projeto_CRUD/Class/User.php");
     require_once("C:/xampp/htdocs/Projeto_CRUD/Class/Data_Base.php");
 
+    $Links = new Links();
+    $Database = new DataBase();
+    $User = new User();
+    $array_messages = array();
+
     if( isset($_GET['email']) && isset($_GET['id']) )
     {
-        $Links = new Links();
-        $Database = new DataBase();
-        $User = new User();
-        $array_messages = array();
-
         $array_messages = $User->validation_data($_POST['name'], "", $_POST['password'], $array_messages);
 
         $message = null;
@@ -23,23 +23,29 @@
 
         if ( $array_messages['count'] === true)
         {
-            $Links->redirect("/Projeto_CRUD/User_place/changename.php", $message, $_GET['id'], $_GET['email']);
+            $Links->redirect("/Projeto_CRUD/User_place/changename/changename.php", $message, $_GET['id'], $_GET['email']);
         }
         else 
         {
-            $id = $Database->search_data("id_user", "email", $_GET['email']);
+            $id = $Database->search_data("users", "id_user", "email", $_GET['email']);
 
             if ( $Database->validation_password($_GET['email'], $_POST['password']) === true)
             {
                 $Database->update_data($_GET['email'], "users", "name_user", $_POST['name']);
                 $message = "nome atualizado com sucesso!";
-                $Links->redirect("/Projeto_CRUD/User_place/changename.php", $message, $_GET['id'], $_GET['email']);
+                $Links->redirect("/Projeto_CRUD/User_place/changename/changename.php", $message, $_GET['id'], $_GET['email']);
             }
             else 
             {
                 $message = "senha incorreta, verifique-a e tente novamente";
-                $Links->redirect("/Projeto_CRUD/User_place/changename.php", $message, $_GET['id'], $_GET['email']);
+                $Links->redirect("/Projeto_CRUD/User_place/changename/changename.php", $message, $_GET['id'], $_GET['email']);
             }
         }
     }
+    else
+    {
+        $Links->redirect("/Projeto_CRUD/Errors/ErrorScreen.php");
+    }
+
+    $Database->close_connection();
 ?>

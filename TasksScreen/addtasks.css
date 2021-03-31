@@ -1,0 +1,57 @@
+div.addtask{
+    width: 375px;
+    height: 575px;
+    border: 4px black solid;
+    border-radius: 40px;
+    background: rgb(49, 144, 173);
+    position: fixed;
+    right: 50px;
+    top: 70px;
+    bottom: 15px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+}
+
+form.addtask label, input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.addtask input[type="text"], input[type="date"]{
+    transition: 0.35s;
+    width: 210px;
+    height: 20px;
+    border: 3px black solid;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.addtask input[type="submit"] {
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    border: 3px black solid;
+    font-size: 20px;
+}
+
+.addtask input[type="text"]:focus, input[type="date"]:focus  {
+    width: 280px;
+    outline: none;
+}
+
+#description{
+    width: 250px;
+    height: 130px;
+}
+#description:focus{
+    width: 300px;
+}
+
+.addtask h3 {
+    margin-top: 5px;
+}

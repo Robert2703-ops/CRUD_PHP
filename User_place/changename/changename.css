@@ -1,0 +1,63 @@
+body{
+    background: rgb(132, 209, 233);
+    margin: 0;
+}
+
+h1{
+    background: rgb(49, 144, 173);
+    height: 60px;
+    text-align: center;
+    color: white;
+}
+
+form.changename {
+    background: rgb(49, 144, 173);
+    width: 70%;
+    height: 350px;
+    border: 4px black solid;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
+.changename input[type="text"], input[type="password"] {
+    width: 300px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    text-align: center;
+    transition: 0.55s;
+    border: 3px black solid;
+    color: black;
+    font-size: 20px;
+}
+.changename input[type="text"]:focus, input[type="password"]:focus {
+    width: 400px;
+    outline: none;
+}
+
+.changename input[type="submit"] {
+    background: white;
+    width: 90px;
+    height: 40px;
+    border: 3px black solid;
+    border-radius: 20px;
+    transition: 0.35s;
+}
+.changename input[type="submit"]:focus {
+    width: 150px;
+    outline: none;
+}   
+
+
+label{
+    display: block;
+    margin-top: 15px;
+}

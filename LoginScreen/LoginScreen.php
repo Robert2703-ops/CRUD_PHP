@@ -23,7 +23,7 @@
             $array_messages['email'] = "campo email invalido!";
         }
         else if($User->validation_email() === false && $User->validation_password() === false){
-            $count = $Database->search_data("email","email", $User->email);
+            $count = $Database->search_data("users", "email","email", $User->email);
             
             if($count === false){
                 $array_messages['email'] = "Email nao encontrado!";
@@ -31,7 +31,7 @@
             {
                 if($Database->validation_password($User->email, $User->password) === true)
                 {
-                    $id = $Database->search_data("id_user", "email", $User->email);
+                    $id = $Database->search_data("users", "id_user", "email", $User->email);
                     $Link->redirect("/Projeto_CRUD/TasksScreen/TasksScreen.php", "", $id, $User->email);
                 }
                 else{

@@ -36,4 +36,6 @@
         $message = "Preencha os campos corretamente!";
         $Links->redirect("/Projeto_CRUD/User_place/changepassword/changepassword.php", $message, $_GET['id'], $_GET['email']);
     }
+
+    $Database->close_connection();
 ?>

@@ -1,61 +1,71 @@
 body{
-    background: rgb(31, 135, 167);
+    background: rgb(132, 209, 233);
 }
 div.form{
-    background: rgb(13, 55, 117);
+    background: rgb(49, 144, 173);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
-    width: 500px;
-    height: 450px;
+    margin-top: 20px;
+    width: 550px;
+    height: 530px;
     text-align: center;
     color: white;
-    box-shadow: 15px 10px 7px rgb(5, 49, 114);
+    box-shadow: 15px 10px 7px rgb(15, 57, 70);
     border-radius: 15px;
+    border: 4px black solid;
+    font-size: 19px;
 }
 form.form{
     margin-top: 40px;
 }
 .form input[type = "text"], .form input[type = "password"]{
-    color: white;
+    color: black;
     border: 1px rgb(0, 0, 0) solid;
-    background: none;
+    background: white;
     display: block;
     margin: 20px auto;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 25px;
     border-radius: 35px;
+    border: 3px black solid;
     transition: 0.25s;
-    width: 250px;
+    width: 350px;
     outline: none;
+    font-size: 20px;
 }
 .form input[type = "text"]:focus ,  input[type = "password"]:focus{
-    width: 350px;
-    border-color: rgb(4, 90, 4);
-    background: rgb(119, 181, 206);
-    color: white;
+    width: 450px;
+    background: white;
+    color: black;
 }
 .form input[type = "submit"]{
-    background: none;
+    background: white;
     outline: none;
-    color: white;
+    color: black;
     padding-bottom: 8px;
     padding-top: 8px;
     padding-left: 10px;
     padding-right: 10px;
     width: 100px;
-    border: 1px rgb(0, 0, 0) solid;
+    height: 45px;
+    border: 3px rgb(0, 0, 0) solid;
     border-radius: 20px;
+    transition: 0.35s;
+    font-size: 18px;
 }
+.form input[type="submit"]:focus {
+    width: 200px;
+}
+
 div.Text{
-    margin-top: 30px;
-    font-size: large;
+    margin-top: 20px;
+    font-size: 22px;
 }
 .Text a{
     color: rgb(0, 0, 255);
 }
 
 .form a{
-    color: red;
+    color: black;
 }

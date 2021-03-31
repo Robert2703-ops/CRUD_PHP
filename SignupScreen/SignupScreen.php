@@ -20,7 +20,7 @@
             $Errors_messages['count'] = $User->validation_count($Errors_messages['count']);
             
         }else if ($User->validation_email() === false){
-            $number = $DataBase->search_data("email", "email", $User->email);
+            $number = $DataBase->search_data("users", "email", "email", $User->email);
             
             if($number === $User->email){
                 $Errors_messages['email'] = "Email nao disponivel";
@@ -28,7 +28,7 @@
             }
         }if ($Errors_messages['count'] === false){
             $DataBase->set_data($User->name, $User->email, $User->password);
-            $id = $DataBase->search_data("id_user", "email", $User->email);
+            $id = $DataBase->search_data("users", "id_user", "email", $User->email);
             $Link->redirect_tasks($id, $User->email);
         }
     }

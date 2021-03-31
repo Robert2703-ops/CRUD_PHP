@@ -1,6 +1,6 @@
 body{
    margin: 0px;
-   background: rgb(22, 64, 180);
+   background: rgb(132, 209, 233);
 }
 div.Back{
     background: rgb(111, 172, 201);
@@ -13,35 +13,40 @@ div.Back{
     top: 1%;
     bottom: 1%;
     border-radius: 30px;
+    border: 4px black solid;
 }
 
 div.Box{
-    background: rgb(13, 55, 117);
+    background: rgb(49, 144, 173);
     margin-right: 0px;
-    width: 510px;
-    height: 500px;
+    width: 50%;
+    height: 100%;
     text-align: center;
     color: white;
-    box-shadow: 15px 10px 7px rgb(5, 49, 114);
+    font-size: 21px;
     border-radius: 15px;
     float: left;
-    margin: 40px;
+    border-right: 3px black solid;
 }
 .Box input[type = "submit"]{
     text-align: center;
-    color: white;
+    font-size: 19px;
+    color: black;
     width: 150px;
-    background: none;
-    border: 1px black solid;
+    background: white;
+    border: 3px black solid;
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 20px;
+    transition: 0.35s;
 }
 .Box input[type = "submit"]:focus{
     outline: none;
+    width: 250px;
 }
 .Box input[type = "text"], .Box input[type = "password"]{
     color: white;
+    font-size: 18px;
     display: block;
     margin: 20px auto;
     text-align: center;
@@ -49,21 +54,19 @@ div.Box{
     padding-bottom: 15px;
     width: 250px;
     outline: none;
-    background: none;
-    border: 1px black solid;
+    background: white;
+    border: 3px black solid;
     transition: 0.25s;
     border-radius: 35px;
 }
 .Box input[type = "text"]:focus, .Box input[type = "password"]:focus{
     width: 350px;
-    background: rgb(119, 181, 206);
-    border-color: rgb(4, 27, 90);
 }
 
 div.Text{
-    margin-top: 30px;
-    font-size: large;
+    margin-top: 20px;
+    font-size: 22px;
 }
 .Text a{
-    color: red;
+    color: black;
 }
