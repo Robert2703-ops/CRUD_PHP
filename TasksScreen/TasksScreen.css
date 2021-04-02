@@ -34,13 +34,33 @@ div.tasks {
     margin-top: 15px;
     margin-left: 20px;
     width: 50%;
-    height: 100%;
-    background: white;
+    height: auto;
+    background: rgb(49, 144, 173);
+    border-radius: 20px;
+    border: 3px black solid;
+    position: absolute;
 }
  
 .tasks div {
-    margin-left: 10px;
-    margin-right: 10px;
-    background: red;
-    width: 40%;
+    width: 44%;
+    height: auto;
+    background: none;
+    border: 3px black solid;
+    margin: 15px;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.tasks button {
+    border: 2px black solid;
+    border-radius: 15px;
+    background: white; 
+    width: 80px;
+    height: 30px;
+}
+.tasks a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
 }

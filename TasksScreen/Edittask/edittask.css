@@ -1,0 +1,51 @@
+body {
+    margin: 0px;
+    background: rgb(132, 209, 233);
+
+}
+form#edit {
+    width: 50%;
+    height: auto;
+    margin: auto;
+    margin-top: 30px;
+    background: rgb(49, 144, 173);
+    border: 3px black solid;
+    border-radius: 20px;
+}
+
+#edit input[type="text"], input[type="submit"], input[type="date"], label {
+    display: block;
+    width: 390px;
+    color: black;
+    font-size: 18px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    transition: 0.35s;
+}
+
+#edit input[type="submit"] {
+    width: 150px;
+    transition: 0.25s;
+}
+#edit input[type="submit"]:focus {
+    width: 240px;
+    outline: none;
+}
+
+#description {
+    width: auto;
+    outline: none;
+}
+
+#edit input[type="text"]:focus, input[type="date"]:focus, input[type="submit"]:focus {
+    width: 500px;
+    outline: none;
+}
+
+#edit label {
+    color: white;
+    font-size: 22px;
+}
+

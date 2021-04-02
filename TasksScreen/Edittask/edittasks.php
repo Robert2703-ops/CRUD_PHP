@@ -52,10 +52,18 @@
             echo 
             "
                 <form action='edittasks.php?info=edit&id_user={$_GET['id_user']}&email={$_GET['email']}&id_task={$_GET['id_task']}' method='POST' id='edit'>
+                    <label>Titulo</label>
                     <input type='text' name='title_tasks' value='{$Task->title}'>
+                    
+                    <label>Descricao</label>
                     <input type='text' name='description_tasks' value='{$Task->description}' id='description'>
+                    
+                    <label>Data inicio</label>
                     <input type='date' name='date_start' value='{$Task->start_date}'>
+                    
+                    <label>Data final</label>
                     <input type='date' name='date_finish' value='{$Task->finish_date}'>
+                    
                     <input type='submit' name='submit' value='salvar'>
                 </form>
             ";
@@ -72,3 +80,18 @@
     }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="edittask.css">
+</head>
+<body>
+    
+</body>
+</html>

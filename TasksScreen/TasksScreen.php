@@ -80,11 +80,11 @@
                     echo
                     "
                         <div>
-                            <label>{$array["title$count"]}</label>
+                            <p>{$array["title$count"]}</p>
                             <p>{$array["description$count"]}</p>
                             </br>
-                            <a href='Edittask/edittasks.php?info=edit&id_task={$array["id_task$count"]}&id_user={$id}&email={$User->email}'>Editar</a>
-                            <a href='Edittask/edittasks.php?info=delete&id_task={$array["id_task$count"]}&id_user={$id}&email={$User->email}'>Excluir</a>
+                            <button><a href='Edittask/edittasks.php?info=edit&id_task={$array["id_task$count"]}&id_user={$id}&email={$User->email}'>Editar</a></button>
+                            <button><a href='Edittask/edittasks.php?info=delete&id_task={$array["id_task$count"]}&id_user={$id}&email={$User->email}'>Excluir</a></button>
                         </div>
                     ";
                 }
@@ -120,7 +120,6 @@
             ";
         ?>
     </div>
-
 </body>
 </html>
 
