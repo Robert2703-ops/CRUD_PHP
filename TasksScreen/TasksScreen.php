@@ -107,7 +107,7 @@
                     <input type='text' name='titulo'>
 
                     <label>Descricao da tarefa: </label>
-                    <input type='text' name='descricao'  id='description' maxlegth=500>
+                    <textarea name='descricao'  id='description' maxlegth=500></textarea>
                     
                     <label>Data de inicio da tarefa: </label>
                     <input type='date' name='datainicio'></input>

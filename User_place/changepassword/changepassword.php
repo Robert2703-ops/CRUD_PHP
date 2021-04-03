@@ -56,6 +56,8 @@
                 <input type='password' name='newpassword'> 
                 
                 <input type='submit' name='submit' value='enviar'> 
+
+                <p><a href='/Projeto_CRUD/TasksScreen/TasksScreen.php?id={$_GET['id']}&email={$_GET['email']}'>Voltar a suas tarefas</a></p>
             </form> 
             ";
     ?>

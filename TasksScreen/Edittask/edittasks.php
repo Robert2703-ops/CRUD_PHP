@@ -56,7 +56,7 @@
                     <input type='text' name='title_tasks' value='{$Task->title}'>
                     
                     <label>Descricao</label>
-                    <input type='text' name='description_tasks' value='{$Task->description}' id='description'>
+                    <textarea name='description_tasks' value='{$Task->description}' id='description'>{$Task->description}</textarea>
                     
                     <label>Data inicio</label>
                     <input type='date' name='date_start' value='{$Task->start_date}'>
@@ -65,6 +65,8 @@
                     <input type='date' name='date_finish' value='{$Task->finish_date}'>
                     
                     <input type='submit' name='submit' value='salvar'>
+                
+                    <p><a href='/Projeto_CRUD/TasksScreen/TasksScreen.php?id={$_GET['id_user']}&email={$_GET['email']}'>Voltar a suas tarefas</a></p>
                 </form>
             ";
         }

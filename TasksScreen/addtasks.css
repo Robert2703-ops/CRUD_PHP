@@ -42,14 +42,21 @@ form.addtask label, input{
 .addtask input[type="text"]:focus, input[type="date"]:focus  {
     width: 280px;
     outline: none;
+    font-size: 25px;
 }
 
 #description{
+    text-align: center;
     width: 250px;
     height: 130px;
+    border-radius: 15px;
+    border: 3px black solid;
+    transition: 0.35s;
 }
 #description:focus{
     width: 300px;
+    outline: none;
+    font-size: 25px;
 }
 
 .addtask h3 {
