@@ -5,7 +5,7 @@ body{
 header.menu{
     background: rgb(49, 144, 173);
     width: 100%;
-    height: 60px;
+    height: 100px;
     display: block;
     margin-top: 5px;
 }
@@ -38,7 +38,8 @@ div.tasks {
     background: rgb(49, 144, 173);
     border-radius: 20px;
     border: 3px black solid;
-    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
 }
  
 .tasks div {

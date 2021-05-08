@@ -14,19 +14,18 @@ div.Back{
     bottom: 1%;
     border-radius: 30px;
     border: 4px black solid;
+    display: flex;
+    justify-content: center;
 }
 
 div.Box{
     background: rgb(49, 144, 173);
-    margin-right: 0px;
     width: 50%;
     height: 100%;
     text-align: center;
     color: white;
     font-size: 21px;
     border-radius: 15px;
-    float: left;
-    border-right: 3px black solid;
 }
 .Box input[type = "submit"]{
     text-align: center;
@@ -45,7 +44,7 @@ div.Box{
     width: 250px;
 }
 .Box input[type = "text"], .Box input[type = "password"]{
-    color: white;
+    color: black;
     font-size: 18px;
     display: block;
     margin: 20px auto;
@@ -61,6 +60,7 @@ div.Box{
 }
 .Box input[type = "text"]:focus, .Box input[type = "password"]:focus{
     width: 350px;
+    color: black;
 }
 
 div.Text{

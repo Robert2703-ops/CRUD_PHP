@@ -76,11 +76,6 @@
                 Ja tem conta aqui no nosso servico? <a href="/Projeto_CRUD/LoginScreen/LoginScreen.php">Login</a>
             </div>
         </div>
-
-        <div class="Welcome">
-            <h2>Bem vindo</h2>
-            <p>Aqui vai alguns exemplos do projeto!
-        </div>
     </div>
 </body>
 </html>

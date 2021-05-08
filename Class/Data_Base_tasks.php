@@ -4,7 +4,7 @@
     
         public function __construct()
         {
-            $this->connection = mysqli_connect("localhost", "robert", "rpl123", "php_tasks");
+            $this->connection = mysqli_connect("localhost", "root", "", "php_tasks");
         
             if(mysqli_connect_errno())
             {
